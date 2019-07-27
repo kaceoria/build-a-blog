@@ -16,12 +16,13 @@ class Blog(db.Model):
     def __init__(self, title, body):
         self.title = title
         self.body = body
+        
 
 @app.route('/')
 def index():
     return redirect('/blog')
 
-@app.route('/blog')
+@app.route('/blog', methods=['GET'])
 def blog():
     blog_id = request.args.get('id')
 
